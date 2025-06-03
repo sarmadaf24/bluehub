@@ -44,3 +44,26 @@ Thumbs.db
 .env
 cookies.txt
 logs/
+# Ignore Python virtual environment
+/.venv/
+/venv/
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore local environment config
+/.env
+/cookies.txt
+
+# Ignore logs
+/logs/
+
+# Ignore build artifacts
+build/
+/dist/
+*.egg-info/
+.venv/
+.env
+cookies.txt
+logs/

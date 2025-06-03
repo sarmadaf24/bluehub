@@ -1,0 +1,62 @@
+📱 Android (V2RayNG)
+Gereksinimler
+
+Android 5.0 ve üzeri
+
+İnternet bağlantısı
+
+APK ile kurulacaksa: Ayarlar → Güvenlik → Bilinmeyen kaynaklar aktif olsun.
+
+Uygulamayı Yükle
+
+Google Play Store’u aç, “v2rayNG” ara ve Yükle tuşuna bas.
+
+Veya GitHub Releases sayfasından en son v2rayNG.apk indirip manuel kur.
+
+İzinleri Ver
+
+İlk açılışta Depolama, Kamera (QR için) ve VPN izinlerini onayla.
+
+Android 9+ için: Ayarlar → Uygulamalar → V2RayNG → Pil → Arka planda çalışmaya izin ver.
+
+Konfigürasyonu Al
+
+Sağlayıcıdan Abonelik URL’si (Subscription URL) veya QR kod görüntüsü al.
+
+Konfigürasyonu İçe Aktar
+
+Uygulamayı aç, üstteki ＋ simgesine dokun:
+
+Import QR Code – QR’ı tara veya galeriden yükle
+
+Import URL – Abonelik linkini yapıştır
+
+İçe aktardıktan sonra ⋮ menüden Edit ile profil adını veya port’u düzenleyebilirsin.
+
+VPN’i Etkinleştir
+
+Profil üzerine dokun → Enabled (yeşil ✓) olarak işaretlenir.
+
+Bildirim çubuğunu indir, VPN anahtarını aç.
+
+Anahtar görünmezse: Ayarlar → Ağ ve internet → VPN üzerinden etkinleştir.
+
+Test ve Hata Ayıklama
+
+Uygulama içi Logs bölümünde bağlantı zamanlarını ve hataları izle.
+
+DNS sızıntısını önlemek için Ayarlar → DNS → Use remote DNS seçeneğini aktif et.
+
+Hız testi için Speedtest veya PingTools kullan.
+
+🔒 En İyi Uygulamalar
+
+Konfig dosyalarını resmi ve güvenilir kaynaklardan (HTTPS) al.
+
+JSON’u VSCode gibi güvenilir bir editörde düzenle—fazladan virgül veya yorum yok.
+
+Her değişiklikten sonra istemci/servisi yeniden başlat.
+
+DNS sızıntısını önlemek için Use Remote DNS hep aktif kalsın.
+
+Gelişmiş protokoller (VMess, VLess, Trojan) için resmi V2Ray dokümantasyonuna başvur.

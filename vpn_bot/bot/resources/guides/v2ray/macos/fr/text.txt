@@ -1,0 +1,53 @@
+🍎 macOS (V2RayX)
+Pré-requis
+
+macOS 10.12+
+
+Sur Catalina+ : autorisez l’application dans Préférences Système → Sécurité et confidentialité.
+
+Installation
+
+Téléchargez le fichier .dmg depuis V2RayX Releases, puis glissez-le dans votre dossier Applications.
+
+Chargement de la configuration
+
+Lancez V2RayX.
+
+Dans la barre de menus : File → Import Subscription (URL) ou Import JSON (fichier local).
+
+Démarrage du service
+
+Cliquez sur l’icône V2RayX dans la barre de menus → Start.
+
+Si on vous demande d’autoriser une extension kernel, cliquez sur Allow dans Sécurité et confidentialité.
+
+Sélection du mode proxy
+
+Choisissez Global (système entier) ou PAC (mode intelligent).
+
+Vous pouvez activer Bypass LAN & China pour de meilleures performances.
+
+Test de la connexion
+
+Dans le Terminal :
+
+curl ifconfig.me
+
+Ou vérifiez votre IP dans un navigateur.
+
+Notes avancées
+
+Après toute modification de config ou souscription, sélectionnez Restart dans le menu V2RayX.
+
+Activez Remote DNS sous Preferences → DNS pour éviter les fuites DNS.
+
+🔒 Bonnes pratiques finales
+Toujours obtenir les configs via une source officielle et sécurisée (HTTPS).
+
+Éditez les fichiers JSON uniquement dans un éditeur fiable (VSCode…) sans virgules superflues ni commentaires.
+
+Après toute modification, redémarrez le client ou le service.
+
+Gardez Use Remote DNS activé pour prévenir les fuites DNS.
+
+Pour les protocoles avancés (VMess, VLess, Trojan), référez-vous à la documentation officielle de V2Ray.

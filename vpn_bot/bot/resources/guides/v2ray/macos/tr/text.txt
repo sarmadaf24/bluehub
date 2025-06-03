@@ -1,0 +1,52 @@
+🍎 macOS (V2RayX)
+Gereksinimler
+
+macOS 10.12+
+
+Catalina ve üzeri için Sistem Tercihleri → Güvenlik ve Gizlilik’ten izin ver.
+
+Kurulum
+
+GitHub Releases’tan .dmg dosyasını indir, Uygulamalar klasörüne sürükle.
+
+Konfigürasyonu Yükle
+
+V2RayX’i aç.
+
+Menüden File → Import Subscription (URL) veya Import JSON (yerel dosya) seç.
+
+Servisi Başlat
+
+Menü çubuğundaki V2RayX ikonuna tıkla → Start.
+
+Kernel extension uyarısı gelirse Güvenlik ve Gizlilik’ten Allow de.
+
+Proxy Modu Seç
+
+Global (tüm sistem) veya PAC (akıllı).
+
+Performans için Bypass LAN & China seçeneğini değerlendirebilirsin.
+
+Bağlantıyı Test Et
+
+curl ifconfig.me
+
+veya tarayıcıdan IP’ni kontrol et.
+
+İleri Notlar
+
+Konfigürasyon sonrası Restart seçeneğiyle uygulamayı yeniden başlat.
+
+Preferences → DNS altında Enable Remote DNS aktif kalsın.
+
+🔒 En İyi Uygulamalar
+
+Konfig dosyalarını resmi ve güvenilir kaynaklardan (HTTPS) al.
+
+JSON’u VSCode gibi güvenilir bir editörde düzenle—fazladan virgül veya yorum yok.
+
+Her değişiklikten sonra istemci/servisi yeniden başlat.
+
+DNS sızıntısını önlemek için Use Remote DNS hep aktif kalsın.
+
+Gelişmiş protokoller (VMess, VLess, Trojan) için resmi V2Ray dokümantasyonuna başvur.

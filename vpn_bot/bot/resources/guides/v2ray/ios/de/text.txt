@@ -1,0 +1,47 @@
+📱 iOS (Shadowrocket / Quantumult Lite / Kitsunebi)
+App installieren
+
+Shadowrocket (kostenpflichtig) oder Quantumult Lite / Kitsunebi (kostenlos) aus dem App Store
+
+Konfig importieren
+
+Shadowrocket:
+
+Reiter Servers → ＋ → Type: Vmess/Vless → URL einfügen oder Import from QR Code
+
+Quantumult Lite /Kitsunebi:
+
+Settings → Subscription → ＋ → URL einfügen → Done
+
+VPN-Erlaubnis
+
+Beim ersten Verbindungsaufbau nach Erlaubnis fragen → Allow
+
+In Einstellungen → Allgemein → VPN sollte Connected angezeigt werden
+
+Sicheres DNS
+
+Shadowrocket: Settings → Remote DNS → Enable
+
+Quantumult Lite: Settings → DNS → Use Remote DNS
+
+Verbindung testen
+
+Safari → ifconfig.me oder whatismyip.com
+
+Fehlerbehebung
+
+Nach neuem Config: App Force Quit und neu starten
+
+Bei Verbindungsproblemen VPN aus/anmachen oder Gerät neustarten
+
+🔒 Best Practices
+Konfiguration nur von vertrauenswürdiger, offizieller Quelle (HTTPS) beziehen
+
+JSON in einem zuverlässigen Editor (z. B. VSCode) bearbeiten – keine überflüssigen Kommata/Kommentare
+
+Nach jeder Änderung Client/Service neu starten
+
+Use Remote DNS immer aktiviert lassen, um DNS-Lecks zu verhindern
+
+Für erweiterte Protokolle (VMess, VLess, Trojan) die offizielle V2Ray-Dokumentation konsultieren

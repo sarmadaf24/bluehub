@@ -1,0 +1,25 @@
+
+DATABASE_URL=postgresql+psycopg2://sarmad:Sarmad0af2400@127.0.0.1:5432/vpn_bot alembic -c vpn_bot/db/migrations/alembic.ini upgrade head
+DATABASE_URL=postgresql+asyncpg://sarmad:Sarmad0af2400@127.0.0.1:5432/vpn_bot
+python -m vpn_bot.db.manage seedall
+
+
+pg_restore -h localhost -p 5432 -U postgres -d vpn_bot -v backups/db/your_backup_file.sql
+createdb -h localhost -p 5432 -U postgres vpn_bot
+
+python3 /root/bluehub/vpn_bot/db/backups/backup_all.py
+cd /root/bluehub/vpn_bot/db/backups
+python3 restore_from_backup.py
+python vpn_bot/db/restore/post_restore.py
+python3 vpn_bot/db/restore/restore_from_latest_backup.py
+python3 /root/bluehub/vpn_bot/db/core/reset_db.py
+PYTHONPATH=. python3 vpn_bot/db/manage.py --help
+
+chmod +x backup_db.sh backup_project.sh backup_all.sh
+./backup_all.sh
+./backup_db.sh
+./backup_project.sh
+
+
+chmod +x restore_*.sh
+pg_dump و pg_restore

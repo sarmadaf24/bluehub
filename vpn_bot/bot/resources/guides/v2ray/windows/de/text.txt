@@ -1,0 +1,58 @@
+💻 Windows (v2rayN)
+Voraussetzungen
+
+Windows 7/8/10/11
+
+.NET Framework 4.7+ (oder .NET 5+)
+
+Download & Entpacken
+
+GitHub Releases → neueste v2rayN.zip herunterladen
+
+In z. B. C:\v2rayN entpacken
+
+Konfig platzieren
+
+config.json durch die vom Anbieter gelieferte JSON ersetzen oder bearbeiten
+
+Optional in Settings → Subscription Abo-URL einfügen für automatische Updates
+
+Als Administrator starten
+
+Rechtsklick auf v2rayN.exe → Als Administrator ausführen
+
+Icon erscheint in der Taskleiste (System Tray)
+
+Import & Proxy aktivieren
+
+Tray-Icon → Rechtsklick → Import config.json
+
+Rechtsklick → Switch System Proxy → Global Mode
+
+Alternativ PAC- oder manuellen Proxy-Modus wählen
+
+Verbindung testen
+
+CMD öffnen und ausführen:
+
+curl ifconfig.me
+
+Oder Browser → whatismyip.com
+
+Firewall & DNS
+
+Falls blockiert: in Windows Defender Firewall v2rayN freigeben
+
+Gegen DNS-Leaks in Settings → DNS Remote DNS auswählen
+
+🔒 Best Practices
+
+Konfiguration nur von vertrauenswürdiger, offizieller Quelle (HTTPS) beziehen
+
+JSON in einem zuverlässigen Editor (z. B. VSCode) bearbeiten – keine überflüssigen Kommata/Kommentare
+
+Nach jeder Änderung Client/Service neu starten
+
+Use Remote DNS immer aktiviert lassen, um DNS-Lecks zu verhindern
+
+Für erweiterte Protokolle (VMess, VLess, Trojan) die offizielle V2Ray-Dokumentation konsultieren

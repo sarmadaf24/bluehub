@@ -1,0 +1,55 @@
+💻 Windows (v2rayN)
+Gereksinimler
+
+Windows 7/8/10/11
+
+.NET Framework 4.7+ (veya .NET 5+)
+
+İndir & Aç
+
+GitHub’daki v2rayN Releases sayfasından ZIP dosyasını indir.
+
+Örneğin C:\v2rayN klasörüne aç.
+
+Konfigürasyonu Yerleştir
+
+Klasördeki config.json dosyasını sağlayıcıdan gelen JSON ile değiştir veya düzenle.
+
+(Opsiyonel) Settings → Subscription bölümüne URL ekleyerek otomatik güncelleme aktif et.
+
+Yönetici Olarak Çalıştır
+
+v2rayN.exe üzerinde sağ tık → Run as administrator.
+
+Sistem tepsisinde (System Tray) simgeyi gör.
+
+İçe Aktar & Etkinleştir
+
+Tepsi simgesine sağ tık → Import config.json.
+
+Tekrar sağ tık → Switch System Proxy → Global Mode (veya PAC/Manual).
+
+Bağlantıyı Test Et
+
+curl ifconfig.me
+
+veya tarayıcıya whatismyip.com yaz.
+
+Güvenlik Duvarı & DNS
+
+Windows Defender engellerse v2rayN’e izin ver.
+
+Settings → DNS içinde Remote DNS seçerek DNS sızıntısını önle.
+
+🔒 En İyi Uygulamalar
+
+Konfig dosyalarını resmi ve güvenilir kaynaklardan (HTTPS) al.
+
+JSON’u VSCode gibi güvenilir bir editörde düzenle—fazladan virgül veya yorum yok.
+
+Her değişiklikten sonra istemci/servisi yeniden başlat.
+
+DNS sızıntısını önlemek için Use Remote DNS hep aktif kalsın.
+
+Gelişmiş protokoller (VMess, VLess, Trojan) için resmi V2Ray dokümantasyonuna başvur.
+

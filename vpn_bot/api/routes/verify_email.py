@@ -16,7 +16,7 @@ logger = logging.getLogger("email-verif2")
 async def verify_email(token: str):
     logger.info("شروع تأیید ایمیل؛ token=%s", token)
     try:
-        user_id = confirm_email_token(token)
+        user_id = await confirm_email_token(token)
         logger.info("توکن معتبر؛ user_id=%s", user_id)
     except TokenNotFound:
         logger.warning("توکن نامعتبر یا منقضی: %s", token)

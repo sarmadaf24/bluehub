@@ -1,0 +1,2 @@
+[console_scripts]
+bluehub = main:main

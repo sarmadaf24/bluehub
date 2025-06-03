@@ -1,0 +1,57 @@
+💻 Windows (v2rayN)
+Pré-requis
+
+Windows 7/8/10/11
+
+.NET Framework 4.7+ (ou .NET 5+)
+
+Téléchargement et extraction
+
+Allez sur la page v2rayN Releases de GitHub.
+
+Téléchargez le ZIP le plus récent (v2rayN.zip) et extrayez-le dans un dossier, par exemple C:\v2rayN.
+
+Placement de la configuration
+
+Remplacez ou éditez config.json avec le JSON fourni par votre prestataire.
+
+(Optionnel) Dans v2rayN, sous Settings → Subscription, collez l’URL pour mise à jour automatique.
+
+Exécution en tant qu’administrateur
+
+Clic droit sur v2rayN.exe → Exécuter en tant qu’administrateur.
+
+L’icône apparaît alors dans la barre de notification (System Tray).
+
+Importation et activation
+
+Clic droit sur l’icône Tray → Import config.json.
+
+Clic droit → Switch System Proxy → Global Mode (ou mode PAC/Manual).
+
+Test de la connexion
+
+Ouvrez l’Invite de commandes et lancez :
+
+vbnet
+Copy
+Edit
+curl ifconfig.me
+Ou rendez-vous sur whatismyip.com dans votre navigateur.
+
+Pare-feu et DNS
+
+Si Windows Defender bloque la connexion, autorisez v2rayN via le pare-feu.
+
+Pour empêcher les fuites DNS : dans v2rayN, Settings → DNS, sélectionnez Remote DNS.
+
+🔒 Bonnes pratiques finales
+Toujours obtenir les configs via une source officielle et sécurisée (HTTPS).
+
+Éditez les fichiers JSON uniquement dans un éditeur fiable (VSCode…) sans virgules superflues ni commentaires.
+
+Après toute modification, redémarrez le client ou le service.
+
+Gardez Use Remote DNS activé pour prévenir les fuites DNS.
+
+Pour les protocoles avancés (VMess, VLess, Trojan), référez-vous à la documentation officielle de V2Ray.

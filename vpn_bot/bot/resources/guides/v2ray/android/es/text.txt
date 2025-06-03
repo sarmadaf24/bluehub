@@ -1,0 +1,61 @@
+📱 Android (V2RayNG)
+Requisitos
+
+Android 5.0 o superior
+
+Conexión a Internet
+
+Si instalas por APK: activa Fuentes desconocidas en Ajustes → Seguridad.
+
+Instalación de la app
+
+Abre Google Play, busca v2rayNG y pulsa Instalar.
+
+O bien descarga el APK más reciente desde los Releases de GitHub e instálalo manualmente.
+
+Permisos
+
+Al iniciar por primera vez, concede permisos de Almacenamiento, Cámara (para QR) y VPN.
+
+En Android 9+ ve a Ajustes → Apps → V2RayNG → Batería y activa Permitir actividad en segundo plano.
+
+Obtener la configuración
+
+Solicita a tu proveedor una URL de suscripción o un código QR.
+
+Importar la configuración
+
+Abre V2RayNG y toca ＋ en la parte superior:
+
+Import QR Code para escanear o cargar la imagen QR.
+
+Import URL para pegar la URL de suscripción.
+
+Tras importar, usa el menú ⋮ junto al perfil para Editar (nombre, puerto, etc.).
+
+Activar perfil y VPN
+
+Toca el perfil para cambiarlo a Enabled (✓ verde).
+
+Despliega la barra de notificaciones y activa el interruptor VPN.
+
+Si no aparece, ve a Ajustes → Red e Internet → VPN y actívalo allí.
+
+Prueba y depuración
+
+En V2RayNG abre Logs para ver tiempos de handshake y errores.
+
+Para evitar fugas DNS, en Ajustes → DNS activa Use remote DNS.
+
+Mide la velocidad con Speedtest o PingTools.
+
+🔒 Buenas prácticas finales
+Descarga las configuraciones solo de fuentes oficiales y seguras (HTTPS).
+
+Edita JSON únicamente en editores confiables (VSCode) sin comas sobrantes ni comentarios.
+
+Tras cualquier actualización, reinicia el cliente o servicio.
+
+Mantén Use Remote DNS activado para evitar fugas DNS.
+
+Para protocolos avanzados (VMess, VLess, Trojan), consulta la documentación oficial de V2Ray.

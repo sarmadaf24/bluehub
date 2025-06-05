@@ -20,6 +20,7 @@ def autodiscover_handlers(package_name: str):
 
 # فراخوانیِ اتودیسکاور برای زیردایرکتوری support, user, admin و ...
 autodiscover_handlers("vpn_bot.bot.handlers")
+autodiscover_handlers("vpn_bot.bot.handlers.payment")
 
 if __name__ == "__main__":
     import asyncio

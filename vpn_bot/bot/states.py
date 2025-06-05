@@ -7,3 +7,11 @@ class CardPaymentStates(StatesGroup):
 
 class TrialStates(StatesGroup):
     waiting_for_email = State()
+
+
+class SupportStates(StatesGroup):
+    """States for the basic live chat support."""
+
+    ask_topic = State()
+    receive_description = State()
+    live_chat = State()

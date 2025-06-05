@@ -25,10 +25,12 @@ app = FastAPI(title="BlueHub Cron & API Service", version="1.0")
 
 # —————— ثبت (mount) روت‌های API ——————
 from vpn_bot.api.routes.email_verification import router as email_router
-from vpn_bot.api.routes.server             import router as server_router
+from vpn_bot.api.routes.server import router as server_router
+from vpn_bot.api.webhooks import router as webhook_router
 
 app.include_router(email_router, prefix="/api",       tags=["email"])
 app.include_router(server_router, prefix="/api/servers", tags=["servers"])
+app.include_router(webhook_router, prefix="/api", tags=["webhooks"])
 # ————————————————————————————————
 
 # Configure logging

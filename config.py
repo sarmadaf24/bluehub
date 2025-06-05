@@ -43,6 +43,7 @@ NOWPAYMENTS_API_KEY  = getenv("NOWPAYMENTS_API_KEY", required=True)
 
 # Nobitex
 NOBITEX_API_KEY     = getenv("NOBITEX_API_KEY", required=True)
+NOBITEX_API_SECRET  = getenv("NOBITEX_API_SECRET", required=True)
 NOBITEX_BASE_URL    = getenv("NOBITEX_BASE_URL", default="https://api.nobitex.ir")
 
 # Wallex
@@ -52,6 +53,7 @@ WALLEX_BASE_URL     = getenv("WALLEX_BASE_URL", default="https://api.wallex.ir")
 # Exir
 EXIR_API_KEY        = getenv("EXIR_API_KEY", required=True)
 EXIR_BASE_URL       = getenv("EXIR_BASE_URL", default="https://api.exir.io")
+EXIR_API_SECRET     = getenv("EXIR_API_SECRET", required=True)
 # ======================
 # ⚙️ General Application
 # ======================

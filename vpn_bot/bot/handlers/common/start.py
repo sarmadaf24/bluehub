@@ -9,6 +9,7 @@ from vpn_bot.utils.i18n import t
 from vpn_bot.services.user_service import upsert_user
 from vpn_bot.keyboards.language import language_keyboard
 from vpn_bot.keyboards.main import main_menu_inline
+from vpn_bot.support_settings import ADMIN_USER_ID, set_admin
 from vpn_bot.context.lang_context import current_lang
 
 router = Router()
@@ -19,6 +20,11 @@ async def handle_start(message: Message):
     user_id = message.from_user.id
     username = message.from_user.username
     await upsert_user(user_id=user_id, username=username)
+
+    if ADMIN_USER_ID is None:
+        set_admin(user_id)
+        await message.answer("شما به عنوان ادمین ثبت شدید.")
+        return
 
     # استفاده از زبان تلگرام برای اولین بار
     lang = message.from_user.language_code or "en"

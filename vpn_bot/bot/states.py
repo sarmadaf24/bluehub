@@ -10,8 +10,8 @@ class TrialStates(StatesGroup):
 
 
 class SupportStates(StatesGroup):
-    """States for the basic live chat support."""
+    """States for user support ticket creation and live chat."""
 
-    ask_topic = State()
-    receive_description = State()
+    waiting_for_subject = State()
+    waiting_for_description = State()
     live_chat = State()

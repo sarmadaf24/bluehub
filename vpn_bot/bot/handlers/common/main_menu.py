@@ -5,6 +5,8 @@ from aiogram.types import Message
 from vpn_bot.utils.i18n import get_user_lang
 from vpn_bot.utils.i18n import t
 from vpn_bot.utils.i18n import match_key_by_text
+from aiogram.fsm.context import FSMContext
+from vpn_bot.bot.states import SupportStates
 
 router = Router()
 print("📦 main_menu.py router loaded ✅")
@@ -51,6 +53,6 @@ async def handle_guide(message: Message):
 
 
 @router.message(lambda msg: match_key_by_text("support", msg.text))
-async def handle_support(message: Message):
-    lang = await get_user_lang(message.from_user.id)
-    await message.answer(t("send_ticket_msg", lang))
+async def handle_support(message: Message, state: FSMContext):
+    await message.answer("لطفاً موضوع تیکت را وارد کنید:")
+    await state.set_state(SupportStates.waiting_for_subject)

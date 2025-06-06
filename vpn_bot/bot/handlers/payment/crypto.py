@@ -46,12 +46,15 @@ class CryptoPaymentStates(StatesGroup):
 # اگر مبلغ پلن کمتر از این باشد، مسیر دستی (آفلاین) فعال می‌شود
 MINIMUM_CRYPTO_PAYMENT = 5.0
 
+async def _filter_nowpayments_provider(call: CallbackQuery, state: FSMContext) -> bool:
+    data = await state.get_data()
+    return data.get("selected_provider") == "nowpayments"
+
 @router.callback_query(
     CryptoPaymentStates.select_coin,
     F.data.startswith("crypto_coin:"),
-    lambda call, state: (await state.get_data()).get("selected_provider") == "nowpayments"
+    _filter_nowpayments_provider
 )
-
 @router.callback_query(F.data.startswith("crypto:provider:"))
 async def show_crypto_coins(call: CallbackQuery, state: FSMContext):
     lang = current_lang.get()

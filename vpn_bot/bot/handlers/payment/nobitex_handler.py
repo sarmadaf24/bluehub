@@ -1,7 +1,7 @@
 from aiogram import Router
-from aiogram.filters import Text
 from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.enums import ParseMode
+import re  # در صورت نیاز به شِبه‌نویسی، وگرنه می‌توانید این را حذف کنید
 
 from vpn_bot.services.payment.nobitex import create_payment_order
 from vpn_bot.db.core import SessionLocal
@@ -11,7 +11,7 @@ import time
 
 router = Router()
 
-@router.callback_query(Text(equals="nobitex"))
+@router.callback_query(lambda call: call.data == "nobitex")
 async def handle_nobitex(callback: CallbackQuery):
     order = create_payment_order(amount_usd=10.0, order_id=f"{callback.from_user.id}_{int(time.time())}")
     payment_url = order.get("payment_url")

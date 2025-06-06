@@ -1,5 +1,4 @@
 from aiogram import Router
-from aiogram.filters import Text
 from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.enums import ParseMode
 
@@ -11,7 +10,7 @@ import time
 
 router = Router()
 
-@router.callback_query(Text(equals="exir"))
+@router.callback_query(lambda call: call.data == "exir")
 async def handle_exir(callback: CallbackQuery):
     order = create_payment_order(amount_usd=10.0, order_id=f"{callback.from_user.id}_{int(time.time())}")
     payment_url = order.get("payment_url")

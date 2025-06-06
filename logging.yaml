@@ -1,0 +1,26 @@
+# /root/bluehub/logging.yaml
+version: 1
+formatters:
+  default:
+    format: "[%(asctime)s] %(levelname)s in %(module)s: %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: default
+    level: INFO
+loggers:
+  uvicorn:
+    handlers: [console]
+    level: INFO
+    propagate: false
+  uvicorn.error:
+    handlers: [console]
+    level: INFO
+    propagate: false
+  uvicorn.access:
+    handlers: [console]
+    level: INFO
+    propagate: false
+root:
+  handlers: [console]
+  level: INFO

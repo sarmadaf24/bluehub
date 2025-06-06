@@ -6,7 +6,8 @@ import json
 import time
 import hmac
 import hashlib
-from config import NOBITEX_API_KEY, NOBITEX_BASE_URL, NOBITEX_API_SECRET
+from config import NOBITEX_API_KEY, NOBITEX_BASE_URL
+from config import NOBITEX_API_KEY as NOBITEX_API_SECRET
 
 logger = logging.getLogger("nobitex")
 

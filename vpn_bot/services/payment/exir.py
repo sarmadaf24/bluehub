@@ -6,7 +6,8 @@ import time
 import hmac
 import hashlib
 import json
-from config import EXIR_API_KEY, EXIR_BASE_URL, EXIR_API_SECRET
+from config import EXIR_API_KEY, EXIR_BASE_URL
+from config import EXIR_API_KEY as EXIR_API_SECRET
 
 logger = logging.getLogger("exir")
 

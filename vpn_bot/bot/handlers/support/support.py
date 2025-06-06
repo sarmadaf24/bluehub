@@ -5,6 +5,9 @@ from aiogram.types import CallbackQuery, Message
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
+from vpn_bot.bot_instance import bot
+from vpn_bot.ai_support.ai import get_ai_reply, THRESHOLD
+
 from config import ADMIN_CHAT_ID
 from vpn_bot.bot.states import SupportStates
 
@@ -39,7 +42,7 @@ async def support_receive_description(message: Message, state: FSMContext) -> No
     data = await state.get_data()
     topic = data.get("topic", "")
     try:
-        await message.bot.send_message(
+        await bot.send_message(
             ADMIN_CHAT_ID,
             f"🆕 تیکت جدید:\nموضوع: {topic}\nپیام: {message.text}\nاز کاربر: {message.from_user.id}"
         )
@@ -54,13 +57,17 @@ async def support_receive_description(message: Message, state: FSMContext) -> No
 
 @router.message(SupportStates.live_chat, F.text)
 async def user_live_chat_handler(message: Message, state: FSMContext) -> None:
-    """Forward user messages during live chat to the admin."""
+    """Try AI response and forward to admin if confidence is low."""
     data = await state.get_data()
     user_id = data.get("user_id")
     if not user_id:
         return
     try:
-        await message.bot.send_message(
+        reply = get_ai_reply(message.text, message.from_user.language_code)
+        if reply["confidence"] >= THRESHOLD and reply["answer"]:
+            await message.answer(reply["answer"])
+            return
+        await bot.send_message(
             ADMIN_CHAT_ID,
             f"[چت زنده] از کاربر {user_id}: {message.text}"
         )

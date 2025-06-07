@@ -12,6 +12,8 @@ class TrialStates(StatesGroup):
 class SupportStates(StatesGroup):
     """States for user support ticket creation and live chat."""
 
-    waiting_for_subject = State()
-    waiting_for_description = State()
+    # فاز نخست پشتیبانی: دریافت موضوع و توضیح مشکل
+    ask_topic = State()
+    receive_description = State()
+    # پس از ثبت، کاربر وارد چت زنده می‌شود
     live_chat = State()

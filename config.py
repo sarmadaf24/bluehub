@@ -21,7 +21,12 @@ def getenv(key: str, default=None, required=False, cast_type=str):
 # 🤖 Telegram Bot Settings
 # ========================
 BOT_TOKEN = getenv("BOT_TOKEN", required=True)
-ADMIN_IDS = [int(x) for x in os.getenv("ADMINS", "").split(",") if x.strip().isdigit()]
+# از python-dotenv برای بارگذاری ADMIN_IDS استفاده می‌کنیم
+ADMIN_IDS = [
+    int(x)
+    for x in os.getenv("ADMIN_IDS", "").split(",")
+    if x.strip().isdigit()
+]
 ADMIN_CHAT_ID = int(os.getenv("ADMIN_CHAT_ID", 0))
 
 # ====================

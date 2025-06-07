@@ -19,20 +19,21 @@ router = Router()
 logger = logging.getLogger(__name__)
 
 @router.message(Command("support"))
-async def support_start(message: Message, state: FSMContext):
+@router.message(lambda m: m.text == "پشتیبانی")
+async def enter_support(message: Message, state: FSMContext):
     await message.answer("لطفاً موضوع تیکت را وارد کنید:", reply_markup=ReplyKeyboardRemove())
     await state.set_state(SupportStates.waiting_for_subject)
 
 
 @router.message(SupportStates.waiting_for_subject)
-async def get_subject(message: Message, state: FSMContext):
+async def got_subject(message: Message, state: FSMContext):
     await state.update_data(subject=message.text)
     await message.answer("لطفاً توضیحات خود را وارد کنید:")
     await state.set_state(SupportStates.waiting_for_description)
 
 
 @router.message(SupportStates.waiting_for_description)
-async def get_description(message: Message, state: FSMContext):
+async def got_description(message: Message, state: FSMContext):
     data = await state.get_data()
     subject = data.get("subject", "")
     description = message.text
@@ -58,7 +59,7 @@ async def get_description(message: Message, state: FSMContext):
 
 
 @router.message(lambda m: m.from_user.id in OPERATORS)
-async def operator_reply(message: Message):
+async def operator_message(message: Message):
     operator_id = message.from_user.id
     ticket_id = await get_active_ticket_for_operator(operator_id)
     if not ticket_id:

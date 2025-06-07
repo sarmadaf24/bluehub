@@ -22,6 +22,7 @@ from vpn_bot.services.payment.scheduler import start_scheduler
 from config import LOG_LEVEL, ENVIRONMENT
 from vpn_bot.bot_instance import bot, dp
 from vpn_bot.bot.core import register_handlers
+from vpn_bot.bot.startup import register as register_startup
 # =======================
 # 🚀 راه‌اندازی ربات
 # =======================
@@ -44,6 +45,7 @@ async def main():
     dp.callback_query.middleware(AntiBreakMiddleware())
     # — ثبت هندلرها و
     register_handlers(dp)
+    register_startup(dp)
       # — اجرای Scheduler در پس‌زمینه
     asyncio.create_task(start_scheduler())
 

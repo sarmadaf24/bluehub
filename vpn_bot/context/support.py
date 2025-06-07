@@ -14,6 +14,6 @@ async_session = AsyncSessionLocal
 class SupportStates(StatesGroup):
     """FSM states for the basic support flow."""
 
-    ask_topic = State()
-    receive_description = State()
+    waiting_for_subject = State()
+    waiting_for_description = State()
     live_chat = State()

@@ -13,7 +13,7 @@ class SupportStates(StatesGroup):
     """States for user support ticket creation and live chat."""
 
     # فاز نخست پشتیبانی: دریافت موضوع و توضیح مشکل
-    ask_topic = State()
-    receive_description = State()
-    # پس از ثبت، کاربر وارد چت زنده می‌شود
+    waiting_for_subject = State()
+    waiting_for_description = State()
+    # پس از ثبت، کاربر وارد چت زنده می‌شود (در فازهای بعدی)
     live_chat = State()

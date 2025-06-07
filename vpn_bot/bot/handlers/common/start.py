@@ -1,13 +1,21 @@
-import os
-from aiogram import types
-from vpn_bot.bot_instance import dp
+from aiogram import Router
+from aiogram.filters import Command
+from aiogram.types import Message
+from aiogram.fsm.context import FSMContext
 
-ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_IDS", "").split(",") if x]
+from config import ADMIN_IDS
 
-@dp.message_handler(commands=["start"])
-async def cmd_start(message: types.Message):
+router = Router()
+
+
+@router.message(Command("start"))
+async def start_command(message: Message, state: FSMContext) -> None:
+    """Simple /start handler using Aiogram v3."""
     user_id = message.from_user.id
     if user_id in ADMIN_IDS:
-        await message.reply("بات آماده به‌کار است.")
+        await message.answer("بات آماده به‌کار است.")
     else:
-        await message.reply("شما دسترسی ادمین ندارید.")
+        await message.answer("شما دسترسی ادمین ندارید.")
+
+# سازگاری با نسخه‌های قدیمی‌تر
+cmd_start = start_command

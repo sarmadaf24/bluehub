@@ -10,9 +10,9 @@ async def test_start_for_admin(monkeypatch):
     message = AsyncMock(spec=Message)
     message.from_user = User(id=42, is_bot=False, first_name="Admin")
 
-    await start_module.cmd_start(message)
+    await start_module.start_command(message, AsyncMock())
 
-    message.reply.assert_called_once_with("بات آماده به‌کار است.")
+    message.answer.assert_called_once_with("بات آماده به‌کار است.")
 
 
 @pytest.mark.asyncio
@@ -21,6 +21,6 @@ async def test_start_for_non_admin(monkeypatch):
     message = AsyncMock(spec=Message)
     message.from_user = User(id=7, is_bot=False, first_name="User")
 
-    await start_module.cmd_start(message)
+    await start_module.start_command(message, AsyncMock())
 
-    message.reply.assert_called_once_with("شما دسترسی ادمین ندارید.")
+    message.answer.assert_called_once_with("شما دسترسی ادمین ندارید.")

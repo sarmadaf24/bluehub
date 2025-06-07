@@ -21,17 +21,17 @@ logger = logging.getLogger(__name__)
 @router.message(Command("support"))
 async def support_start(message: Message, state: FSMContext):
     await message.answer("لطفاً موضوع تیکت را وارد کنید:", reply_markup=ReplyKeyboardRemove())
-    await state.set_state(SupportStates.waiting_for_subject)
+    await state.set_state(SupportStates.ask_topic)
 
 
-@router.message(SupportStates.waiting_for_subject)
+@router.message(SupportStates.ask_topic)
 async def get_subject(message: Message, state: FSMContext):
     await state.update_data(subject=message.text)
     await message.answer("لطفاً توضیحات خود را وارد کنید:")
-    await state.set_state(SupportStates.waiting_for_description)
+    await state.set_state(SupportStates.receive_description)
 
 
-@router.message(SupportStates.waiting_for_description)
+@router.message(SupportStates.receive_description)
 async def get_description(message: Message, state: FSMContext):
     data = await state.get_data()
     subject = data.get("subject", "")

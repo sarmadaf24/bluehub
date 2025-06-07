@@ -1,4 +1,11 @@
-"""Basic live support handlers."""
+"""Basic live support handlers.
+
+TODOs for future phases:
+    - Quick Replies
+    - Automated Triage
+    - Multi-Modal support
+    - Real-Time Notifications
+"""
 
 from aiogram import Router, F
 from aiogram.types import CallbackQuery, Message
@@ -8,7 +15,7 @@ from aiogram.fsm.context import FSMContext
 from vpn_bot.bot_instance import bot
 from vpn_bot.ai_support.ai import get_ai_reply, THRESHOLD
 
-from config import ADMIN_CHAT_ID
+from config import ADMIN_CHAT_ID, ADMIN_IDS
 from vpn_bot.bot.states import SupportStates
 
 router = Router()
@@ -42,10 +49,11 @@ async def support_receive_description(message: Message, state: FSMContext) -> No
     data = await state.get_data()
     topic = data.get("topic", "")
     try:
-        await bot.send_message(
-            ADMIN_CHAT_ID,
-            f"🆕 تیکت جدید:\nموضوع: {topic}\nپیام: {message.text}\nاز کاربر: {message.from_user.id}"
-        )
+        for admin_id in ADMIN_IDS or [ADMIN_CHAT_ID]:
+            await bot.send_message(
+                admin_id,
+                f"🆕 تیکت جدید:\nموضوع: {topic}\nپیام: {message.text}\nاز کاربر: {message.from_user.id}"
+            )
     except Exception as e:
         await message.answer(f"خطا در ارسال پیام به ادمین:\n{e}")
         return
@@ -67,15 +75,16 @@ async def user_live_chat_handler(message: Message, state: FSMContext) -> None:
         if reply["confidence"] >= THRESHOLD and reply["answer"]:
             await message.answer(reply["answer"])
             return
-        await bot.send_message(
-            ADMIN_CHAT_ID,
-            f"[چت زنده] از کاربر {user_id}: {message.text}"
-        )
+        for admin_id in ADMIN_IDS or [ADMIN_CHAT_ID]:
+            await bot.send_message(
+                admin_id,
+                f"[چت زنده] از کاربر {user_id}: {message.text}"
+            )
     except Exception as e:
         await message.answer(f"خطا در ارسال پیام به ادمین:\n{e}")
 
 
-@router.message(F.chat.type == "private", F.from_user.id == ADMIN_CHAT_ID, F.text)
+@router.message(F.chat.type == "private", lambda m: m.from_user.id in (ADMIN_IDS or [ADMIN_CHAT_ID]), F.text)
 async def admin_live_chat_handler(message: Message) -> None:
     """Handle replies from admin in the format <user_id>#<answer>."""
     text = message.text

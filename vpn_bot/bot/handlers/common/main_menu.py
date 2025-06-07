@@ -55,4 +55,4 @@ async def handle_guide(message: Message):
 @router.message(lambda msg: match_key_by_text("support", msg.text))
 async def handle_support(message: Message, state: FSMContext):
     await message.answer("لطفاً موضوع تیکت را وارد کنید:")
-    await state.set_state(SupportStates.waiting_for_subject)
+    await state.set_state(SupportStates.ask_topic)

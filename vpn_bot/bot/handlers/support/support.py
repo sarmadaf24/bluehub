@@ -24,26 +24,26 @@ router = Router()
 @router.message(Command("support"))
 async def support_start(message: Message, state: FSMContext) -> None:
     """Entry point for support via command."""
-    await state.set_state(SupportStates.ask_topic)
+    await state.set_state(SupportStates.waiting_for_subject)
     await message.answer("لطفاً موضوع درخواست خود را وارد کنید.")
 
 
 @router.callback_query(F.data == "پشتیبانی")
 async def support_callback_handler(callback: CallbackQuery, state: FSMContext) -> None:
     """Entry point triggered from inline menu callback."""
-    await state.set_state(SupportStates.ask_topic)
+    await state.set_state(SupportStates.waiting_for_subject)
     await callback.message.answer("لطفاً موضوع درخواست خود را وارد کنید.")
 
 
-@router.message(SupportStates.ask_topic, F.text)
+@router.message(SupportStates.waiting_for_subject, F.text)
 async def support_receive_topic(message: Message, state: FSMContext) -> None:
     """Store topic and ask for description."""
     await state.update_data(topic=message.text)
-    await state.set_state(SupportStates.receive_description)
+    await state.set_state(SupportStates.waiting_for_description)
     await message.answer("لطفاً توضیح مشکل خود را اعلام کنید.")
 
 
-@router.message(SupportStates.receive_description, F.text)
+@router.message(SupportStates.waiting_for_description, F.text)
 async def support_receive_description(message: Message, state: FSMContext) -> None:
     """Forward the first message to admin and switch to live chat."""
     data = await state.get_data()
